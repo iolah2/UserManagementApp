@@ -41,24 +41,12 @@ namespace UserManagementApp.Repositories
             //var g =  File.ReadAllLines(path);
             using (StreamReader sr = new StreamReader(path,Encoding.UTF8))
             {
-                while (!sr.EndOfStream)
-                {
-                    string[] userDatas = sr.ReadLine().Split(';');
+                string dataRowCSV;
+                while ((dataRowCSV = sr.ReadLine())!= null)
+                {                    
                     try
                     {
-                        users.Add(
-                            new User()
-                            {
-                                ID = int.Parse(userDatas[0]),
-                                UserName = userDatas[1],
-                                Password = userDatas[2],
-                                LastName = userDatas[3],
-                                FirstName = userDatas[4],
-                                DateOfBirth = DateTime.Parse(userDatas[5]),
-                                PlaceOfBirth = userDatas[6],
-                                CityOfAddress = userDatas[7]
-                            }
-                            );
+                        users.Add( new User(dataRowCSV));
                     }
                     catch (Exception ex)
                     {
@@ -76,7 +64,35 @@ namespace UserManagementApp.Repositories
 
         public void Update(User item)
         {
-            throw new NotImplementedException();
+            //int idx =_userList.ToList().IndexOf(_userList.ToList().First(u => u.ID == item.ID));
+            List<string> lines = new List<string>();
+            bool isFound = false;
+            using (StreamReader reader = new StreamReader(path, Encoding.UTF8))
+            {
+                string dataRowCSV;                
+                while ((dataRowCSV = reader.ReadLine()) != null)
+                {
+                    if(dataRowCSV.Split(';')[0] == item.ID.ToString())
+                    {
+                        dataRowCSV = item.GetCSVRowFromItem();
+                        isFound = true;
+                    }
+                    lines.Add(dataRowCSV);
+                }
+            }
+
+            if (isFound)
+            {
+                using (StreamWriter writer = new StreamWriter(path))
+                {
+                    foreach (string line in lines)
+                        writer.WriteLine(line);
+                }
+            }
+            ///Use another step if allow adding new user!
+            else throw new Exception("Not found updated user in csv file!");
+            //TODO Here we need refresh
+            GetList();
         }
 
         public bool Validate(User item)
