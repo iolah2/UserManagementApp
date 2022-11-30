@@ -29,5 +29,17 @@ namespace UserManagementApp.Views
                 (repository as IExport).ExportDataList(filePath: saveFileDialog.FileName);
             }
         }
+
+        private void modifyButton_Click(object sender, EventArgs e)
+        {
+            if(usersDGV.SelectedRows != null)
+            {
+                User user = usersDGV.SelectedRows[0].DataBoundItem as User;
+                DetailForm<User> detailForm = new DetailForm<User>(user, repository as UserRepository);
+                detailForm.StartPosition = FormStartPosition.CenterParent;
+                //detailForm.TopMost = true;
+                detailForm.ShowDialog();
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace UserManagementApp.Repositories
         void Update(T item);
         bool Validate(T item);
         //void Delete(object id);
-        void Save();
+        void Save(T item);
     }
 }
 

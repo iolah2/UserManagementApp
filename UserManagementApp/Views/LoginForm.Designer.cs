@@ -31,9 +31,11 @@ namespace UserManagementApp.Views
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.userNameTB = new System.Windows.Forms.TextBox();
-            this.passwordTB = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.userNameTB = new DevExpress.XtraEditors.TextEdit();
+            this.passwordTB = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.userNameTB.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordTB.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,42 +60,46 @@ namespace UserManagementApp.Views
             // 
             // userNameTB
             // 
-            this.userNameTB.Location = new System.Drawing.Point(185, 45);
+            this.userNameTB.EnterMoveNextControl = true;
+            this.userNameTB.Location = new System.Drawing.Point(185, 47);
             this.userNameTB.Name = "userNameTB";
-            this.userNameTB.Size = new System.Drawing.Size(154, 20);
-            this.userNameTB.TabIndex = 2;
+            this.userNameTB.Size = new System.Drawing.Size(172, 20);
+            this.userNameTB.TabIndex = 1;
             // 
             // passwordTB
             // 
+            this.passwordTB.EnterMoveNextControl = true;
             this.passwordTB.Location = new System.Drawing.Point(185, 96);
             this.passwordTB.Name = "passwordTB";
-            this.passwordTB.PasswordChar = '*';
-            this.passwordTB.Size = new System.Drawing.Size(154, 20);
-            this.passwordTB.TabIndex = 3;
+            this.passwordTB.Properties.PasswordChar = '*';
+            this.passwordTB.Size = new System.Drawing.Size(172, 20);
+            this.passwordTB.TabIndex = 2;
             // 
-            // button1
+            // simpleButton1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.button1.Location = new System.Drawing.Point(171, 161);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 40);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.LoginBtn_Click);
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(171, 167);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(102, 41);
+            this.simpleButton1.TabIndex = 5;
+            this.simpleButton1.Text = "Login";
+            this.simpleButton1.Click += new System.EventHandler(this.LoginBtn1_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 243);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.passwordTB);
             this.Controls.Add(this.userNameTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.userNameTB.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordTB.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,8 +109,8 @@ namespace UserManagementApp.Views
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox userNameTB;
-        private System.Windows.Forms.TextBox passwordTB;
-        private System.Windows.Forms.Button button1;
+        private DevExpress.XtraEditors.TextEdit userNameTB;
+        private DevExpress.XtraEditors.TextEdit passwordTB;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

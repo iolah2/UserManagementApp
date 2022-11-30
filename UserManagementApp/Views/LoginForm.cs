@@ -21,26 +21,26 @@ namespace UserManagementApp.Views
             this.repository = repository;// new UserRepository();
         }
 
-        private void LoginBtn_Click(object sender, EventArgs e)
+        private void LoginBtn1_Click(object sender, EventArgs e)
         {
-
             try
             {
                 //Todo: Allow password empty or need passwordTB.Text condition too?
-            if((userNameTB.Text?? "")!="")
-            {
-                if(repository.Login(userNameTB.Text, passwordTB.Text))
+                if ((userNameTB.Text ?? "") != "")
                 {
-                    MessageBox.Show("Login success!");
-                    DataListForm<User> usersForm = new DataListForm<User>(repository as IRepository<User>);
-                    usersForm.Show();
+                    if (repository.Login(userNameTB.Text, passwordTB.Text))
+                    {
+                        MessageBox.Show("Login success!");
+                        DataListForm<User> usersForm = new DataListForm<User>(repository as IRepository<User>);
+                        usersForm.StartPosition = FormStartPosition.CenterParent;
+                        usersForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login failed!");
+                        passwordTB.Text = userNameTB.Text = "";
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Login failed!");
-                    passwordTB.Text = userNameTB.Text = "";
-                }
-            }
             }
             catch (Exception)
             {

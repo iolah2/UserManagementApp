@@ -84,7 +84,7 @@ namespace UserManagementApp.Repositories
             throw new NotImplementedException();
         }
 
-        public void Save()
+        public void Save(User user)
         {
             throw new NotImplementedException();
         }

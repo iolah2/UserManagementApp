@@ -31,9 +31,6 @@ namespace UserManagementApp.Views
         {
             this.components = new System.ComponentModel.Container();
             this.usersDGV = new System.Windows.Forms.DataGridView();
-            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.saveFileDialog = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,13 +40,19 @@ namespace UserManagementApp.Views
             this.placeOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityOfAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.saveFileDialog = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // usersDGV
             // 
+            this.usersDGV.AllowUserToAddRows = false;
+            this.usersDGV.AllowUserToDeleteRows = false;
             this.usersDGV.AutoGenerateColumns = false;
             this.usersDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -63,33 +66,11 @@ namespace UserManagementApp.Views
             this.cityOfAddressDataGridViewTextBoxColumn});
             this.usersDGV.DataSource = this.userBindingSource;
             this.usersDGV.Location = new System.Drawing.Point(-30, 95);
+            this.usersDGV.MultiSelect = false;
             this.usersDGV.Name = "usersDGV";
+            this.usersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersDGV.Size = new System.Drawing.Size(841, 331);
             this.usersDGV.TabIndex = 1;
-            // 
-            // searchControl1
-            // 
-            this.searchControl1.Location = new System.Drawing.Point(215, 29);
-            this.searchControl1.Name = "searchControl1";
-            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Repository.ClearButton(),
-            new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.searchControl1.Size = new System.Drawing.Size(100, 20);
-            this.searchControl1.TabIndex = 2;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(486, 26);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 3;
-            this.simpleButton1.Text = "Export";
-            this.simpleButton1.Click += new System.EventHandler(this.exportBtn_Click);
-            // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.FileName = "xtraSaveFileDialog1";
-            this.saveFileDialog.Filter = "XML-File | *.xml";
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -143,19 +124,53 @@ namespace UserManagementApp.Views
             // 
             this.userBindingSource.DataSource = typeof(UserManagementApp.Models.User);
             // 
+            // searchControl1
+            // 
+            this.searchControl1.Location = new System.Drawing.Point(215, 29);
+            this.searchControl1.Name = "searchControl1";
+            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.searchControl1.Size = new System.Drawing.Size(100, 20);
+            this.searchControl1.TabIndex = 2;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(486, 26);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.TabIndex = 3;
+            this.simpleButton1.Text = "Export";
+            this.simpleButton1.Click += new System.EventHandler(this.exportBtn_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.FileName = "xtraSaveFileDialog1";
+            this.saveFileDialog.Filter = "XML-File | *.xml";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(357, 26);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton2.TabIndex = 4;
+            this.simpleButton2.Text = "Modify";
+            this.simpleButton2.Click += new System.EventHandler(this.modifyButton_Click);
+            // 
             // DataListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 457);
+            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.searchControl1);
             this.Controls.Add(this.usersDGV);
             this.Name = "DataListForm";
             this.Text = "SearchForm";
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -174,5 +189,6 @@ namespace UserManagementApp.Views
         private DevExpress.XtraEditors.SearchControl searchControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.XtraSaveFileDialog saveFileDialog;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }
