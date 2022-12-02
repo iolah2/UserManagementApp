@@ -1,7 +1,9 @@
 ﻿namespace UserManagementApp.Models
 {
-    internal interface IEdit
-    {
+    public interface IEdit
+    {        
         string ValidateWithErrorMsg();
+        void StartEdit();
+        void ResetUserOld();
     }
 }

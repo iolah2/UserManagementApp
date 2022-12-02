@@ -6,11 +6,16 @@ using System.Text;
 namespace UserManagementApp.Models
 {
     //10 minutes
-    public class User : ICSV,IEdit
+    public class User : ICSV, IEdit
     {
+        
         public User()
         {
 
+        }
+        public override string ToString()
+        {
+            return UserName;
         }
 
         public User(string rowFromCSV)
@@ -31,7 +36,7 @@ namespace UserManagementApp.Models
             }
             catch (Exception ex)
             {
-                throw new Exception("Error occured while reading data from file!\n"+ex.Message);///Is need to escape for any wrong data or send message?
+                throw new Exception("Error occured while reading data from file!\n" + ex.Message);///Is need to escape for any wrong data or send message?
             }
         }
 
@@ -59,11 +64,42 @@ namespace UserManagementApp.Models
         public string ValidateWithErrorMsg()
         {
             //List<string> forbiddenPasswords = new List<string> { "qwertz", "qwerty", "123456" };//Is need more
+            string errorMessage = "";
+            if((UserName ?? "") == "")
+                errorMessage += "\nKérjük adja meg a felhasználónevet!";
+            if ((Password ?? "") == "")
+                errorMessage += "\nKérjük adja meg a jelszavát!";
             if (DateOfBirth > DateTime.Today/*.AddYears(-6)*/)
-                return "Adjon meg korábbi születési dátumot";
+                errorMessage += "\nSzületési dátumnak múltbeli időpontnak kell lennie!";
+            if ((FirstName ?? "") == "")
+                errorMessage += "\nKérjük adja meg a keresztnevét!";
+            if ((LastName ?? "") == "")
+                errorMessage += "\nKérjük adja meg a családnevét!";
+            if ((PlaceOfBirth ?? "") == "")
+                errorMessage += "\nKérjük adja meg a születési helyet!";
+            if ((CityOfAddress ?? "") == "")
+                errorMessage += "\nKérjük adja meg a lakhelyét(város/község)!";
+            
             /*if (forbiddenPasswords.Contains(Password.ToLower()))
                 return "Használjon erős jelszót! ... feltételek felsorolása";*/
-            return null;
+            return errorMessage;
+        }
+        User _userOld;
+        public void StartEdit()
+        {
+            _userOld = MemberwiseClone() as User;
+        }
+
+        public void ResetUserOld()
+        {
+            //ID = _userOld.ID;
+            UserName = _userOld.UserName;
+            Password = _userOld.Password;
+            LastName = _userOld.LastName;
+            FirstName = _userOld.FirstName;
+            DateOfBirth = _userOld.DateOfBirth;
+            PlaceOfBirth = _userOld.PlaceOfBirth;
+            CityOfAddress = _userOld.CityOfAddress;
         }
     }
 }

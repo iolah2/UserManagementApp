@@ -1,7 +1,7 @@
 ﻿
 namespace UserManagementApp.Views
 {
-    partial class DetailForm<T>
+    partial class DetailForm //<T>
     {
         /// <summary>
         /// Required designer variable.
@@ -74,7 +74,7 @@ namespace UserManagementApp.Views
             this.userNameTextEdit.EnterMoveNextControl = true;
             this.userNameTextEdit.Location = new System.Drawing.Point(121, 23);
             this.userNameTextEdit.Name = "userNameTextEdit";
-            this.userNameTextEdit.Size = new System.Drawing.Size(159, 20);
+            this.userNameTextEdit.Size = new System.Drawing.Size(158, 20);
             this.userNameTextEdit.TabIndex = 4;
             // 
             // userBindingSource
@@ -88,7 +88,7 @@ namespace UserManagementApp.Views
             this.passwordTextEdit.Location = new System.Drawing.Point(121, 47);
             this.passwordTextEdit.Name = "passwordTextEdit";
             this.passwordTextEdit.Properties.PasswordChar = '*';
-            this.passwordTextEdit.Size = new System.Drawing.Size(159, 20);
+            this.passwordTextEdit.Size = new System.Drawing.Size(158, 20);
             this.passwordTextEdit.TabIndex = 6;
             // 
             // lastNameTextEdit
@@ -97,7 +97,7 @@ namespace UserManagementApp.Views
             this.lastNameTextEdit.EnterMoveNextControl = true;
             this.lastNameTextEdit.Location = new System.Drawing.Point(121, 71);
             this.lastNameTextEdit.Name = "lastNameTextEdit";
-            this.lastNameTextEdit.Size = new System.Drawing.Size(159, 20);
+            this.lastNameTextEdit.Size = new System.Drawing.Size(158, 20);
             this.lastNameTextEdit.TabIndex = 8;
             // 
             // firstNameTextEdit
@@ -106,7 +106,7 @@ namespace UserManagementApp.Views
             this.firstNameTextEdit.EnterMoveNextControl = true;
             this.firstNameTextEdit.Location = new System.Drawing.Point(121, 95);
             this.firstNameTextEdit.Name = "firstNameTextEdit";
-            this.firstNameTextEdit.Size = new System.Drawing.Size(159, 20);
+            this.firstNameTextEdit.Size = new System.Drawing.Size(158, 20);
             this.firstNameTextEdit.TabIndex = 10;
             // 
             // dateOfBirthDateEdit
@@ -121,7 +121,7 @@ namespace UserManagementApp.Views
             this.dateOfBirthDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateOfBirthDateEdit.Properties.MaskSettings.Set("mask", "d");
-            this.dateOfBirthDateEdit.Size = new System.Drawing.Size(137, 20);
+            this.dateOfBirthDateEdit.Size = new System.Drawing.Size(158, 20);
             this.dateOfBirthDateEdit.TabIndex = 12;
             // 
             // placeOfBirthTextEdit
@@ -130,7 +130,7 @@ namespace UserManagementApp.Views
             this.placeOfBirthTextEdit.EnterMoveNextControl = true;
             this.placeOfBirthTextEdit.Location = new System.Drawing.Point(121, 143);
             this.placeOfBirthTextEdit.Name = "placeOfBirthTextEdit";
-            this.placeOfBirthTextEdit.Size = new System.Drawing.Size(137, 20);
+            this.placeOfBirthTextEdit.Size = new System.Drawing.Size(158, 20);
             this.placeOfBirthTextEdit.TabIndex = 14;
             // 
             // cityOfAddressTextEdit
@@ -139,12 +139,12 @@ namespace UserManagementApp.Views
             this.cityOfAddressTextEdit.EnterMoveNextControl = true;
             this.cityOfAddressTextEdit.Location = new System.Drawing.Point(121, 167);
             this.cityOfAddressTextEdit.Name = "cityOfAddressTextEdit";
-            this.cityOfAddressTextEdit.Size = new System.Drawing.Size(137, 20);
+            this.cityOfAddressTextEdit.Size = new System.Drawing.Size(158, 20);
             this.cityOfAddressTextEdit.TabIndex = 16;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(29, 222);
+            this.simpleButton1.Location = new System.Drawing.Point(40, 216);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(73, 25);
             this.simpleButton1.TabIndex = 17;
@@ -153,7 +153,7 @@ namespace UserManagementApp.Views
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(165, 222);
+            this.simpleButton2.Location = new System.Drawing.Point(176, 216);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(88, 25);
             this.simpleButton2.TabIndex = 18;
@@ -167,7 +167,7 @@ namespace UserManagementApp.Views
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup2;
-            this.layoutControl1.Size = new System.Drawing.Size(326, 296);
+            this.layoutControl1.Size = new System.Drawing.Size(326, 281);
             this.layoutControl1.TabIndex = 20;
             // 
             // groupControl1
@@ -192,13 +192,13 @@ namespace UserManagementApp.Views
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(302, 272);
+            this.groupControl1.Size = new System.Drawing.Size(302, 257);
             this.groupControl1.TabIndex = 20;
             this.groupControl1.Text = "layoutControlGroup1";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(43, 170);
+            this.labelControl1.Location = new System.Drawing.Point(59, 170);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(40, 13);
             this.labelControl1.TabIndex = 0;
@@ -206,7 +206,7 @@ namespace UserManagementApp.Views
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(37, 150);
+            this.labelControl2.Location = new System.Drawing.Point(49, 146);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(50, 13);
             this.labelControl2.TabIndex = 17;
@@ -214,7 +214,7 @@ namespace UserManagementApp.Views
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(37, 122);
+            this.labelControl3.Location = new System.Drawing.Point(55, 122);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(44, 13);
             this.labelControl3.TabIndex = 18;
@@ -222,7 +222,7 @@ namespace UserManagementApp.Views
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(29, 95);
+            this.labelControl4.Location = new System.Drawing.Point(41, 98);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(58, 13);
             this.labelControl4.TabIndex = 19;
@@ -230,7 +230,7 @@ namespace UserManagementApp.Views
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(29, 71);
+            this.labelControl5.Location = new System.Drawing.Point(40, 74);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(59, 13);
             this.labelControl5.TabIndex = 20;
@@ -238,7 +238,7 @@ namespace UserManagementApp.Views
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(29, 47);
+            this.labelControl6.Location = new System.Drawing.Point(66, 50);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(33, 13);
             this.labelControl6.TabIndex = 21;
@@ -246,7 +246,7 @@ namespace UserManagementApp.Views
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(29, 23);
+            this.labelControl7.Location = new System.Drawing.Point(21, 23);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(78, 13);
             this.labelControl7.TabIndex = 22;
@@ -259,7 +259,7 @@ namespace UserManagementApp.Views
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(326, 296);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(326, 281);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem1
@@ -267,7 +267,7 @@ namespace UserManagementApp.Views
             this.layoutControlItem1.Control = this.groupControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(306, 276);
+            this.layoutControlItem1.Size = new System.Drawing.Size(306, 261);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -275,10 +275,10 @@ namespace UserManagementApp.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 296);
+            this.ClientSize = new System.Drawing.Size(326, 281);
             this.Controls.Add(this.layoutControl1);
             this.Name = "DetailForm";
-            this.Text = "DetailForm";
+            this.Text = "Szerkesztés";
             ((System.ComponentModel.ISupportInitialize)(this.userNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).EndInit();

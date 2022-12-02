@@ -76,23 +76,17 @@
     <Compile Include="Views\DetailForm.Designer.cs">
       <DependentUpon>DetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DataListDevEX.cs">
+    <Compile Include="Views\UserDataListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\DataListDevEX.Designer.cs">
-      <DependentUpon>DataListDevEX.cs</DependentUpon>
+    <Compile Include="Views\UserDataListForm.Designer.cs">
+      <DependentUpon>UserDataListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DataListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\DataListForm.Designer.cs">
-      <DependentUpon>DataListForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -107,14 +101,11 @@
     <EmbeddedResource Include="Views\DetailForm.resx">
       <DependentUpon>DetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\DataListDevEX.resx">
-      <DependentUpon>DataListDevEX.cs</DependentUpon>
+    <EmbeddedResource Include="Views\UserDataListForm.resx">
+      <DependentUpon>UserDataListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\DataListForm.resx">
-      <DependentUpon>DataListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\UserManagementApp.Models.User.datasource" />
     <None Include="Properties\DataSources\UserManagementApp.ViewModels.UserRepository.datasource" />

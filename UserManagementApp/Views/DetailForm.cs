@@ -12,22 +12,28 @@ using UserManagementApp.Repositories;
 
 namespace UserManagementApp.Views
 {
-    public partial class DetailForm<T> : Form where T : class
+    public partial class DetailForm : Form //<T> : Form where T : class
     {
-        private T user;
-        private IRepository<T> repository;
+        //private T user;
+        private readonly /*IRepository<T>*/UserRepository repository;
 
-        public DetailForm(T user, IRepository<T> repository) 
+        /// <summary>
+        /// Edit item is AktItem in repository
+        /// </summary>        
+        /// <param name="repository"></param>
+        public DetailForm(IRepository<User> repository) /*T user, IRepository<T>*/
         {
             InitializeComponent();            
-            this.userBindingSource.DataSource = user;
-            this.user = user;
-            this.repository = repository;
+            this.userBindingSource.DataSource = repository.AktItem;
+            //this.user = user;            
+            this.repository = repository as UserRepository;
+            repository.AktItem.StartEdit();
 
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
+            repository.AktItem.ResetUserOld();
             Close();
         }
 
@@ -36,15 +42,19 @@ namespace UserManagementApp.Views
             try
             {
                 string errorMessage;
-                if ((errorMessage = repository.Update(user)) == null)
+                if ((errorMessage = repository.Update()) == null)
                 {
                     MessageBox.Show("Felhasználó mentése sikeres!");
+                    Close();
                 }
-                else MessageBox.Show($"Felhasználó adatok validálási hiba!\n{errorMessage}");
+                else
+                {
+                    MessageBox.Show($"Felhasználó adatok validálási hiba!\n{errorMessage}");                    
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Felhasználó ({user}) mentése sikertelen!\n{ex.Message}");
+                MessageBox.Show($"Felhasználó ({repository.AktItem}) mentése sikertelen!\n{ex.Message}");
             }
         }
     }

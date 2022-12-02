@@ -29,7 +29,7 @@ namespace UserManagementApp.Views
         private void LoginBtn_Click(object sender, EventArgs e)
         {
 #if DEBUG
-            DataListForm<User> usersForm = new DataListForm<User>(repository as IRepository<User>)
+            UserDataListForm<User> usersForm = new UserDataListForm<User>(repository as IRepository<User>)
             {
                 StartPosition = FormStartPosition.CenterParent
             };
@@ -42,7 +42,7 @@ namespace UserManagementApp.Views
                     if (repository.Login(userNameTB.Text, passwordTB.Text))
                     {
                         MessageBox.Show("Sikeres belépés!");
-                        DataListForm<User> usersForm = new DataListForm<User>(repository as IRepository<User>)
+                        UserDataList<User> usersForm = new UserDataList<User>(repository as IRepository<User>)
                         {
                             StartPosition = FormStartPosition.CenterParent
                         };

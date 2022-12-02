@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,12 +8,16 @@ using System.Threading.Tasks;
 namespace UserManagementApp.Repositories
 {
     public interface IRepository<T> where T : class
-    {        
-        IEnumerable<T> GetList();
+    {
+        T AktItem { get; }//GetActItem();
+        bool SetActItemById(int ID); 
+        List<T> GetList();
         void RefreshList();
-        T GetById(object id);
+        //T GetById(object id);
         //void Insert(T item);
-        string Update(T item);        
+        string Update();
+        //void StartEdit();
+        //void ResetUserOld();
     }
 }
 
