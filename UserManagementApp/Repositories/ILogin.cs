@@ -8,6 +8,7 @@ namespace UserManagementApp.Repositories
 {
     public interface ILogin
     {
+        bool IsUserListEmpty();
         bool Login(string userName, string password);
     }
 }

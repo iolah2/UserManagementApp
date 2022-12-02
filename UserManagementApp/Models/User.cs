@@ -6,7 +6,7 @@ using System.Text;
 namespace UserManagementApp.Models
 {
     //10 minutes
-    public class User : ICSV
+    public class User : ICSV,IEdit
     {
         public User()
         {
@@ -49,6 +49,21 @@ namespace UserManagementApp.Models
         public string GetCSVRowFromItem()
         {
             return $"{ID};{UserName};{Password};{LastName};{FirstName};{DateOfBirth};{PlaceOfBirth};{CityOfAddress}";
+        }
+
+        /// <summary>
+        /// At DateOfBirth how old is needed? 6, 14 or maybe othre years
+        /// Maybe password conditions if we forbidden short and easy password
+        /// </summary>
+        /// <returns></returns>
+        public string ValidateWithErrorMsg()
+        {
+            //List<string> forbiddenPasswords = new List<string> { "qwertz", "qwerty", "123456" };//Is need more
+            if (DateOfBirth > DateTime.Today/*.AddYears(-6)*/)
+                return "Adjon meg korábbi születési dátumot";
+            /*if (forbiddenPasswords.Contains(Password.ToLower()))
+                return "Használjon erős jelszót! ... feltételek felsorolása";*/
+            return null;
         }
     }
 }

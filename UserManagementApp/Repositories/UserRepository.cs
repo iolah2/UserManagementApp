@@ -11,99 +11,142 @@ using UserManagementApp.Models;
 
 namespace UserManagementApp.Repositories
 {
-    class UserRepository: IRepository<User>, ILogin, IExport
+    class UserRepository : IRepository<User>, ILogin, IExport
     {
-        public readonly string path = @"C:\Users\User\Source\Repos\2022\UserManagementApp\Users.csv";
-        
+        //Todo create an example csv if not exists
+        public readonly string path = @"C:\Users\User\Source\Repos\2022\UserManagementApp\Users2.csv";
+
         public IEnumerable<User> _userList;
         public IEnumerable<User> GetList()
         {
-            if (_userList == null)
-                RefreshList();
+            /*if (_userList == null)
+                RefreshList();*/
             return _userList;
         }
 
         public UserRepository()
-        {
-            RefreshList();
+        {            
+            try
+            {                
+                if (!File.Exists(path))
+                {
+                    File.Create(path).Close();                    
+                    WriteTestingDataIntoCsv(path);
+                }
+                RefreshList();
+            }
+            catch
+            {
+                throw new Exception("Hiba az adatkapcsolat létrehozása során!");
+            }
         }
+
+        private void WriteTestingDataIntoCsv(string path)
+        {
+            try
+            {
+
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                writer.WriteLine("1;Antilop;Korte;Kiss;Géza;1997.12.30;Szeged;Algyő;");
+                writer.WriteLine("2;Kenu;Szilva;Nagy;Andrea;1975.02.11;Pest;Buda;");
+                writer.WriteLine("3;Teve;Palesz;Kiss;Géza;1964.01.23;Szolnok;Pécs;");
+            }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        #region Login part
+        public bool IsUserListEmpty() => !(_userList?.Count() > 0);
 
         public bool Login(string userName, string password)
         {
-            return _userList.FirstOrDefault(u=>u.UserName == userName)?.Password == password;
+            return _userList
+                .FirstOrDefault(u => u.UserName == userName)?
+                .Password == password;
         }
+        #endregion
 
-        
 
+        /// <summary>
+        /// Firstly Set drop error if resource file have wrong row for get user.
+        /// We can count rows that is in wrong format instead of drop error if any bad row.
+        /// </summary>
         public void RefreshList()
         {
             List<User> users = new List<User>();
-            //var g =  File.ReadAllLines(path);
-            using (StreamReader sr = new StreamReader(path,Encoding.UTF8))
+            //int countBadRow = 0;
+            using (StreamReader sr = new StreamReader(path, Encoding.UTF8))
             {
                 string dataRowCSV;
-                while ((dataRowCSV = sr.ReadLine())!= null)
-                {                    
+                while ((dataRowCSV = sr.ReadLine()) != null)
+                {
                     try
                     {
-                        users.Add( new User(dataRowCSV));
+                        users.Add(new User(dataRowCSV));
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        throw new Exception("Error occured while reading data from file!");///Is need to escape for any wrong data or send message?
+                        //countBadRow++;
+                        throw new Exception("A felhasználók listázása során hiba történt!");///Is need to escape for any wrong data or send message?
                     }
                 }
             }
+            //if(countBadRow>0)                
             _userList = users;
         }
+
+
 
         public User GetById(object id)
         {
             throw new NotImplementedException();
         }
-
-        public void Update(User item)
+        //Todo: Exception - új felhasználó esetén a végére kell írni az újat + új id
+        //A throw ág helyett.
+        public string Update(User item)
         {
-            //int idx =_userList.ToList().IndexOf(_userList.ToList().First(u => u.ID == item.ID));
-            List<string> lines = new List<string>();
-            bool isFound = false;
-            using (StreamReader reader = new StreamReader(path, Encoding.UTF8))
+            string msg = item.ValidateWithErrorMsg();
+            if (msg is null)
             {
-                string dataRowCSV;                
-                while ((dataRowCSV = reader.ReadLine()) != null)
+                //int idx =_userList.ToList().IndexOf(_userList.ToList().First(u => u.ID == item.ID));
+                List<string> lines = new List<string>();
+                bool isFound = false;
+                using (StreamReader reader = new StreamReader(path, Encoding.UTF8))
                 {
-                    if(dataRowCSV.Split(';')[0] == item.ID.ToString())
+                    string dataRowCSV;
+                    while ((dataRowCSV = reader.ReadLine()) != null)
                     {
-                        dataRowCSV = item.GetCSVRowFromItem();
-                        isFound = true;
+                        if (dataRowCSV.Split(';')[0] == item.ID.ToString())
+                        {
+                            dataRowCSV = item.GetCSVRowFromItem();
+                            isFound = true;
+                        }
+                        lines.Add(dataRowCSV);
                     }
-                    lines.Add(dataRowCSV);
                 }
-            }
 
-            if (isFound)
-            {
-                using (StreamWriter writer = new StreamWriter(path))
+                if (isFound)
                 {
-                    foreach (string line in lines)
-                        writer.WriteLine(line);
+                    using (StreamWriter writer = new StreamWriter(path))
+                    {
+                        foreach (string line in lines)
+                            writer.WriteLine(line);
+                    }
                 }
+                ///Use another step if allow adding new user!
+                else throw new Exception("A módosított felhasználó nem található az adatbázisban!");
+                //TODO Here we need refresh
+                GetList();                
             }
-            ///Use another step if allow adding new user!
-            else throw new Exception("Not found updated user in csv file!");
-            //TODO Here we need refresh
-            GetList();
+            return msg;
         }
-
-        public bool Validate(User item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save(User user)
-        {
-            throw new NotImplementedException();
-        }
+        
+       
 
         public bool ExportDataList(string filePath)
         {
@@ -132,16 +175,18 @@ namespace UserManagementApp.Repositories
                     });
                     usersXDoc.Add(userListXElement);
                     usersXDoc.Save(filePath);
-                    System.Diagnostics.Process.Start(filePath);
+                    //System.Diagnostics.Process.Start(filePath);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Export user datas is unsuccess by error!");
+                throw new Exception("Felhasználók xml exportja sikertelen!");
             }
             //path;
             //return false;
         }
+
+
     }
 }

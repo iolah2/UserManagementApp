@@ -17,8 +17,14 @@ namespace UserManagementApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ///Thinking
+            try
+            {
             Application.Run(new Views.LoginForm(new UserRepository()));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("A(z) User management program leáll!\n" + ex.Message);
+            }
         }
     }
 }

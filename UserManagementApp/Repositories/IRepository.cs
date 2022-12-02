@@ -12,10 +12,7 @@ namespace UserManagementApp.Repositories
         void RefreshList();
         T GetById(object id);
         //void Insert(T item);
-        void Update(T item);
-        bool Validate(T item);
-        //void Delete(object id);
-        void Save(T item);
+        string Update(T item);        
     }
 }
 

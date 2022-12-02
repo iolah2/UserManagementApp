@@ -33,8 +33,19 @@ namespace UserManagementApp.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if(repository.Validate(user))
-                repository.Save(user);
+            try
+            {
+                string errorMessage;
+                if ((errorMessage = repository.Update(user)) == null)
+                {
+                    MessageBox.Show("Felhasználó mentése sikeres!");
+                }
+                else MessageBox.Show($"Felhasználó adatok validálási hiba!\n{errorMessage}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Felhasználó ({user}) mentése sikertelen!\n{ex.Message}");
+            }
         }
     }
 }

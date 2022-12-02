@@ -18,38 +18,51 @@ namespace UserManagementApp.Views
         public LoginForm(ILogin repository)
         {
             InitializeComponent();
-            this.repository = repository;// new UserRepository();
+            this.repository = repository;
+            if(repository.IsUserListEmpty())
+            {
+                MessageBox.Show("Az adatbázisban nincs felhasználó!\nAz alkalmazás leáll!");
+                Close();                
+            }
         }
 
-        private void LoginBtn1_Click(object sender, EventArgs e)
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
-            try
+#if DEBUG
+            DataListForm<User> usersForm = new DataListForm<User>(repository as IRepository<User>)
             {
-                //Todo: Allow password empty or need passwordTB.Text condition too?
-                if ((userNameTB.Text ?? "") != "")
+                StartPosition = FormStartPosition.CenterParent
+            };
+            usersForm.Show();
+#else
+            try
+            {                
+                if ((userNameTB.Text ?? "") != "" && (passwordTB.Text ?? "") != "")
                 {
                     if (repository.Login(userNameTB.Text, passwordTB.Text))
                     {
-                        MessageBox.Show("Login success!");
-                        DataListForm<User> usersForm = new DataListForm<User>(repository as IRepository<User>);
-                        usersForm.StartPosition = FormStartPosition.CenterParent;
+                        MessageBox.Show("Sikeres belépés!");
+                        DataListForm<User> usersForm = new DataListForm<User>(repository as IRepository<User>)
+                        {
+                            StartPosition = FormStartPosition.CenterParent
+                        };
                         usersForm.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Login failed!");
+                        MessageBox.Show("Bejelentkezés sikertelen!\nKérem adjon meg helyes felhasználónevet és jelszót!");
                         passwordTB.Text = userNameTB.Text = "";
                     }
                 }
+                else MessageBox.Show("Felhasználónév és jelszó megadása kötelező!");
             }
-            catch (Exception)
+            catch(NullReferenceException ex)
             {
-
-                throw;
-            }
-            //try user + password testing
-            //If Ok -> message with success and go to nnext form
-            //Else message unsuccess
+                MessageBox.Show("Hiba a beléptetés folyamata során!");
+            }            
+        
+        
+#endif
         }
     }
-}
+    }

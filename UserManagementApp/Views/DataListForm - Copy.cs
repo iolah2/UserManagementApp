@@ -20,8 +20,6 @@ namespace UserManagementApp.Views
             this.repository = repository;
             InitializeComponent();
             usersDGV.DataSource = repository.GetList();
-            var form = new GridControlDevEX<User>(repository as IRepository<User>);
-            form.Show();
         }
 
         private void exportBtn_Click(object sender, EventArgs e)

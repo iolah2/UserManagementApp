@@ -1,6 +1,6 @@
 ﻿namespace UserManagementApp.Repositories
 {
-    internal interface IExport
+    public interface IExport
     {
         bool ExportDataList(string filePath);
     }
