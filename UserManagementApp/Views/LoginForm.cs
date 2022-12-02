@@ -54,7 +54,11 @@ namespace UserManagementApp.Views
                         passwordTB.Text = userNameTB.Text = "";
                     }
                 }
-                else MessageBox.Show("Felhasználónév és jelszó megadása kötelező!");
+                else
+                {
+                    MessageBox.Show("Felhasználónév és jelszó megadása kötelező!");
+                    userNameTB.Focus();
+                }
             }
             catch
             {

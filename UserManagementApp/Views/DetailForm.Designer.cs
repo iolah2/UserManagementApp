@@ -140,6 +140,8 @@ namespace UserManagementApp.Views
             // 
             // simpleButton1
             // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Location = new System.Drawing.Point(101, 218);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(73, 25);
@@ -149,6 +151,8 @@ namespace UserManagementApp.Views
             // 
             // simpleButton2
             // 
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.Location = new System.Drawing.Point(237, 218);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(88, 25);
@@ -162,8 +166,10 @@ namespace UserManagementApp.Views
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1015, 218, 650, 400);
+            this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl1.Root = this.layoutControlGroup2;
-            this.layoutControl1.Size = new System.Drawing.Size(453, 281);
+            this.layoutControl1.Size = new System.Drawing.Size(426, 302);
             this.layoutControl1.TabIndex = 20;
             // 
             // groupControl1
@@ -188,7 +194,7 @@ namespace UserManagementApp.Views
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(429, 257);
+            this.groupControl1.Size = new System.Drawing.Size(402, 278);
             this.groupControl1.TabIndex = 20;
             this.groupControl1.Text = "layoutControlGroup1";
             // 
@@ -268,8 +274,8 @@ namespace UserManagementApp.Views
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(453, 281);
+            this.layoutControlGroup2.Name = "Root";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(426, 302);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem1
@@ -277,19 +283,20 @@ namespace UserManagementApp.Views
             this.layoutControlItem1.Control = this.groupControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(433, 261);
+            this.layoutControlItem1.Size = new System.Drawing.Size(406, 282);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // userBindingSource
             // 
+            this.userBindingSource.AllowNew = false;
             this.userBindingSource.DataSource = typeof(UserManagementApp.Models.User);
             // 
             // DetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 281);
+            this.ClientSize = new System.Drawing.Size(426, 302);
             this.Controls.Add(this.layoutControl1);
             this.Name = "DetailForm";
             this.Text = "Felhasználó szerkesztés";

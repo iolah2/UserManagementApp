@@ -20,7 +20,7 @@ namespace UserManagementApp.Views
         {
             this.repository = repository;
             InitializeComponent();
-            userGridControl.DataSource = repository.GetList();            
+            userGridControl.DataSource = repository.GetList();
         }
 
         private void ModifyBtn_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace UserManagementApp.Views
                         TopMost = true
                     };
                     detailForm.ShowDialog();
-                    userListGridView.RefreshData();
+                    userListGridView.RefreshData();               
                 }
                 else MessageBox.Show($"A választott felhasználó {user} nem található a felhasználók listájában!");
             }

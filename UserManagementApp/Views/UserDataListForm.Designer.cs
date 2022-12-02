@@ -70,7 +70,7 @@ namespace UserManagementApp.Views
             this.userGridControl.Location = new System.Drawing.Point(0, 0);
             this.userGridControl.MainView = this.userListGridView;
             this.userGridControl.Name = "userGridControl";
-            this.userGridControl.Size = new System.Drawing.Size(660, 184);
+            this.userGridControl.Size = new System.Drawing.Size(833, 288);
             this.userGridControl.TabIndex = 0;
             this.userGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.userListGridView,
@@ -98,7 +98,7 @@ namespace UserManagementApp.Views
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 62;
+            this.gridColumn1.Width = 45;
             // 
             // gridColumn2
             // 
@@ -107,7 +107,7 @@ namespace UserManagementApp.Views
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 131;
+            this.gridColumn2.Width = 95;
             // 
             // gridColumn3
             // 
@@ -116,7 +116,7 @@ namespace UserManagementApp.Views
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 121;
+            this.gridColumn3.Width = 88;
             // 
             // gridColumn4
             // 
@@ -125,7 +125,7 @@ namespace UserManagementApp.Views
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 152;
+            this.gridColumn4.Width = 111;
             // 
             // gridColumn5
             // 
@@ -134,7 +134,7 @@ namespace UserManagementApp.Views
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 146;
+            this.gridColumn5.Width = 106;
             // 
             // gridColumn6
             // 
@@ -143,7 +143,7 @@ namespace UserManagementApp.Views
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 5;
-            this.gridColumn6.Width = 91;
+            this.gridColumn6.Width = 92;
             // 
             // gridColumn7
             // 
@@ -152,7 +152,7 @@ namespace UserManagementApp.Views
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 6;
-            this.gridColumn7.Width = 181;
+            this.gridColumn7.Width = 120;
             // 
             // gridColumn8
             // 
@@ -161,7 +161,7 @@ namespace UserManagementApp.Views
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 7;
-            this.gridColumn8.Width = 219;
+            this.gridColumn8.Width = 151;
             // 
             // gridView1
             // 
@@ -259,7 +259,7 @@ namespace UserManagementApp.Views
             this.textEdit1.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(133, 20);
-            this.textEdit1.TabIndex = 3;
+            this.textEdit1.TabIndex = 1;
             this.textEdit1.EditValueChanged += new System.EventHandler(this.SearchText_EditValueChanged);
             // 
             // labelControl1
@@ -281,14 +281,14 @@ namespace UserManagementApp.Views
             this.stackPanel1.Controls.Add(this.exportBtn);
             this.stackPanel1.Location = new System.Drawing.Point(0, 2);
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(660, 28);
+            this.stackPanel1.Size = new System.Drawing.Size(833, 28);
             this.stackPanel1.TabIndex = 5;
             // 
             // UserDataListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 184);
+            this.ClientSize = new System.Drawing.Size(833, 288);
             this.Controls.Add(this.stackPanel1);
             this.Controls.Add(this.userGridControl);
             this.Name = "UserDataListForm";

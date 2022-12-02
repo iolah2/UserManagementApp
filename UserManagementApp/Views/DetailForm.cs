@@ -28,7 +28,8 @@ namespace UserManagementApp.Views
             //this.user = user;            
             this.repository = repository as UserRepository;
             repository.AktItem.StartEdit();
-
+            //Set false for can use tabindex
+            //https://supportcenter.devexpress.com/Ticket/Details/T403822/tabindex-for-controls-in-layoutcontrol-is-uncontrollable
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

@@ -60,11 +60,11 @@ namespace UserManagementApp.Views
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(80, 79);
+            this.simpleButton1.Location = new System.Drawing.Point(90, 79);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(147, 40);
+            this.simpleButton1.Size = new System.Drawing.Size(124, 40);
             this.simpleButton1.TabIndex = 5;
             this.simpleButton1.Text = "Bejelentkezés";
             this.simpleButton1.Click += new System.EventHandler(this.LoginBtn_Click);
