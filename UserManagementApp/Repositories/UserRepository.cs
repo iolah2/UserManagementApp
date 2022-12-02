@@ -147,43 +147,33 @@ namespace UserManagementApp.Repositories
 
 
 
-        public bool ExportDataList(string filePath)
+        public void ExportDataList(string filePath)
         {
             try
             {
-                if (File.Exists(filePath))
+                XDocument usersXDoc = new XDocument();
+                XElement userListXElement = new XElement("Users");
+                _userList.ToList().ForEach(u =>
                 {
-                    return false;
-                }
-                else
-                {
-                    XDocument usersXDoc = new XDocument();
-                    XElement userListXElement = new XElement("Users");
-                    _userList.ToList().ForEach(u =>
-                    {
-                        XElement userXElement = new XElement("User",
-                            new XElement("ID", u.ID),
-                            new XElement("UserName", u.UserName),
-                            new XElement("Password", u.Password),
-                            new XElement("LastName", u.LastName),
-                            new XElement("FirstName", u.FirstName),
-                            new XElement("DateOfBirth", u.DateOfBirth),
-                            new XElement("PlaceOfBirth", u.PlaceOfBirth),
-                            new XElement("CityOfAddress", u.CityOfAddress));
-                        userListXElement.Add(userXElement);
-                    });
-                    usersXDoc.Add(userListXElement);
-                    usersXDoc.Save(filePath);
-                    //System.Diagnostics.Process.Start(filePath);
-                    return true;
-                }
+                    XElement userXElement = new XElement("User",
+                        new XElement("ID", u.ID),
+                        new XElement("UserName", u.UserName),
+                        new XElement("Password", u.Password),
+                        new XElement("LastName", u.LastName),
+                        new XElement("FirstName", u.FirstName),
+                        new XElement("DateOfBirth", u.DateOfBirth),
+                        new XElement("PlaceOfBirth", u.PlaceOfBirth),
+                        new XElement("CityOfAddress", u.CityOfAddress));
+                    userListXElement.Add(userXElement);
+                });
+                usersXDoc.Add(userListXElement);
+                usersXDoc.Save(filePath);
+                System.Diagnostics.Process.Start(filePath);
             }
             catch (Exception ex)
             {
-                throw new Exception("Felhasználók xml exportja sikertelen!");
+                throw new Exception($"Felhasználók xml exportja sikertelen!\nA(z) {filePath} nem jött létre!");
             }
-            //path;
-            //return false;
         }
 
         //public void StartEdit()

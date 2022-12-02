@@ -19,7 +19,10 @@ namespace UserManagementApp
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-            Application.Run(new Views.LoginForm(new UserRepository()));
+            Application.Run(new Views.LoginForm(new UserRepository()) 
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            });
             }
             catch (Exception ex)
             {

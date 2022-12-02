@@ -107,6 +107,7 @@
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DevExpressTesting.cd" />
     <None Include="Properties\DataSources\UserManagementApp.Models.User.datasource" />
     <None Include="Properties\DataSources\UserManagementApp.ViewModels.UserRepository.datasource" />
     <None Include="Properties\Settings.settings">

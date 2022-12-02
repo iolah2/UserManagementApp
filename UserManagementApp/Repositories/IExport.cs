@@ -2,6 +2,6 @@
 {
     public interface IExport
     {
-        bool ExportDataList(string filePath);
+        void ExportDataList(string filePath);
     }
 }

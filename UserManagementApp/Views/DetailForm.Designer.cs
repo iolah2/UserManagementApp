@@ -31,7 +31,6 @@ namespace UserManagementApp.Views
         {
             this.components = new System.ComponentModel.Container();
             this.userNameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.passwordTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.lastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.firstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -51,8 +50,8 @@ namespace UserManagementApp.Views
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.userNameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).BeginInit();
@@ -66,85 +65,82 @@ namespace UserManagementApp.Views
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // userNameTextEdit
             // 
             this.userNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "UserName", true));
             this.userNameTextEdit.EnterMoveNextControl = true;
-            this.userNameTextEdit.Location = new System.Drawing.Point(121, 23);
+            this.userNameTextEdit.Location = new System.Drawing.Point(155, 22);
             this.userNameTextEdit.Name = "userNameTextEdit";
             this.userNameTextEdit.Size = new System.Drawing.Size(158, 20);
-            this.userNameTextEdit.TabIndex = 4;
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(UserManagementApp.Models.User);
+            this.userNameTextEdit.TabIndex = 1;
             // 
             // passwordTextEdit
             // 
             this.passwordTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "Password", true));
             this.passwordTextEdit.EnterMoveNextControl = true;
-            this.passwordTextEdit.Location = new System.Drawing.Point(121, 47);
+            this.passwordTextEdit.Location = new System.Drawing.Point(155, 51);
             this.passwordTextEdit.Name = "passwordTextEdit";
             this.passwordTextEdit.Properties.PasswordChar = '*';
             this.passwordTextEdit.Size = new System.Drawing.Size(158, 20);
-            this.passwordTextEdit.TabIndex = 6;
+            this.passwordTextEdit.TabIndex = 2;
             // 
             // lastNameTextEdit
             // 
             this.lastNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "LastName", true));
             this.lastNameTextEdit.EnterMoveNextControl = true;
-            this.lastNameTextEdit.Location = new System.Drawing.Point(121, 71);
+            this.lastNameTextEdit.Location = new System.Drawing.Point(155, 77);
             this.lastNameTextEdit.Name = "lastNameTextEdit";
             this.lastNameTextEdit.Size = new System.Drawing.Size(158, 20);
-            this.lastNameTextEdit.TabIndex = 8;
+            this.lastNameTextEdit.TabIndex = 3;
             // 
             // firstNameTextEdit
             // 
             this.firstNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "FirstName", true));
             this.firstNameTextEdit.EnterMoveNextControl = true;
-            this.firstNameTextEdit.Location = new System.Drawing.Point(121, 95);
+            this.firstNameTextEdit.Location = new System.Drawing.Point(155, 103);
             this.firstNameTextEdit.Name = "firstNameTextEdit";
             this.firstNameTextEdit.Size = new System.Drawing.Size(158, 20);
-            this.firstNameTextEdit.TabIndex = 10;
+            this.firstNameTextEdit.TabIndex = 4;
             // 
             // dateOfBirthDateEdit
             // 
             this.dateOfBirthDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "DateOfBirth", true));
             this.dateOfBirthDateEdit.EditValue = null;
             this.dateOfBirthDateEdit.EnterMoveNextControl = true;
-            this.dateOfBirthDateEdit.Location = new System.Drawing.Point(121, 119);
+            this.dateOfBirthDateEdit.Location = new System.Drawing.Point(155, 129);
             this.dateOfBirthDateEdit.Name = "dateOfBirthDateEdit";
             this.dateOfBirthDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateOfBirthDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateOfBirthDateEdit.Properties.MaskSettings.Set("mask", "d");
-            this.dateOfBirthDateEdit.Size = new System.Drawing.Size(158, 20);
-            this.dateOfBirthDateEdit.TabIndex = 12;
+            this.dateOfBirthDateEdit.Size = new System.Drawing.Size(92, 20);
+            this.dateOfBirthDateEdit.TabIndex = 5;
             // 
             // placeOfBirthTextEdit
             // 
             this.placeOfBirthTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "PlaceOfBirth", true));
             this.placeOfBirthTextEdit.EnterMoveNextControl = true;
-            this.placeOfBirthTextEdit.Location = new System.Drawing.Point(121, 143);
+            this.placeOfBirthTextEdit.Location = new System.Drawing.Point(155, 155);
             this.placeOfBirthTextEdit.Name = "placeOfBirthTextEdit";
             this.placeOfBirthTextEdit.Size = new System.Drawing.Size(158, 20);
-            this.placeOfBirthTextEdit.TabIndex = 14;
+            this.placeOfBirthTextEdit.TabIndex = 6;
             // 
             // cityOfAddressTextEdit
             // 
             this.cityOfAddressTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "CityOfAddress", true));
             this.cityOfAddressTextEdit.EnterMoveNextControl = true;
-            this.cityOfAddressTextEdit.Location = new System.Drawing.Point(121, 167);
+            this.cityOfAddressTextEdit.Location = new System.Drawing.Point(155, 180);
             this.cityOfAddressTextEdit.Name = "cityOfAddressTextEdit";
             this.cityOfAddressTextEdit.Size = new System.Drawing.Size(158, 20);
-            this.cityOfAddressTextEdit.TabIndex = 16;
+            this.cityOfAddressTextEdit.TabIndex = 7;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(40, 216);
+            this.simpleButton1.Location = new System.Drawing.Point(101, 218);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(73, 25);
             this.simpleButton1.TabIndex = 17;
@@ -153,7 +149,7 @@ namespace UserManagementApp.Views
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(176, 216);
+            this.simpleButton2.Location = new System.Drawing.Point(237, 218);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(88, 25);
             this.simpleButton2.TabIndex = 18;
@@ -167,7 +163,7 @@ namespace UserManagementApp.Views
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup2;
-            this.layoutControl1.Size = new System.Drawing.Size(326, 281);
+            this.layoutControl1.Size = new System.Drawing.Size(453, 281);
             this.layoutControl1.TabIndex = 20;
             // 
             // groupControl1
@@ -192,63 +188,77 @@ namespace UserManagementApp.Views
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(302, 257);
+            this.groupControl1.Size = new System.Drawing.Size(429, 257);
             this.groupControl1.TabIndex = 20;
             this.groupControl1.Text = "layoutControlGroup1";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(59, 170);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(74, 178);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(40, 13);
+            this.labelControl1.Size = new System.Drawing.Size(59, 19);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Lakhely:";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(49, 146);
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(59, 153);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(50, 13);
+            this.labelControl2.Size = new System.Drawing.Size(74, 19);
             this.labelControl2.TabIndex = 17;
             this.labelControl2.Text = "Szül. hely:";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(55, 122);
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(66, 128);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(44, 13);
+            this.labelControl3.Size = new System.Drawing.Size(67, 19);
             this.labelControl3.TabIndex = 18;
             this.labelControl3.Text = "Szül. idő:";
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(41, 98);
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(52, 101);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(58, 13);
+            this.labelControl4.Size = new System.Drawing.Size(81, 19);
             this.labelControl4.TabIndex = 19;
             this.labelControl4.Text = "Keresztnév:";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(40, 74);
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(47, 75);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(59, 13);
+            this.labelControl5.Size = new System.Drawing.Size(86, 19);
             this.labelControl5.TabIndex = 20;
             this.labelControl5.Text = "Családi név:";
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(66, 50);
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Location = new System.Drawing.Point(85, 49);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(33, 13);
+            this.labelControl6.Size = new System.Drawing.Size(48, 19);
             this.labelControl6.TabIndex = 21;
             this.labelControl6.Text = "Jelszó:";
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(21, 23);
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(21, 20);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(78, 13);
+            this.labelControl7.Size = new System.Drawing.Size(112, 19);
             this.labelControl7.TabIndex = 22;
             this.labelControl7.Text = "Felhasználónév:";
             // 
@@ -259,7 +269,7 @@ namespace UserManagementApp.Views
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(326, 281);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(453, 281);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem1
@@ -267,20 +277,23 @@ namespace UserManagementApp.Views
             this.layoutControlItem1.Control = this.groupControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(306, 261);
+            this.layoutControlItem1.Size = new System.Drawing.Size(433, 261);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(UserManagementApp.Models.User);
             // 
             // DetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 281);
+            this.ClientSize = new System.Drawing.Size(453, 281);
             this.Controls.Add(this.layoutControl1);
             this.Name = "DetailForm";
-            this.Text = "Szerkesztés";
+            this.Text = "Felhasználó szerkesztés";
             ((System.ComponentModel.ISupportInitialize)(this.userNameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).EndInit();
@@ -295,6 +308,7 @@ namespace UserManagementApp.Views
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
