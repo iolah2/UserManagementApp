@@ -12,3 +12,6 @@ UserRepository S hozzá kapcsolódó interface
 User
   IEdit - másolat, valodacio, mentés
   ICSV - betöltés, módosítás rögzítése
+
+DataListForm comstrucror, load hívja meg És kezelje a logint
+Így a kileptetest megoldva.
