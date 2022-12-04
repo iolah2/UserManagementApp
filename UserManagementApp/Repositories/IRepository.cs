@@ -9,7 +9,7 @@ namespace UserManagementApp.Repositories
 {
     public interface IRepository<T> where T : class
     {
-        T AktItem { get; }//GetActItem();
+        T ActItem { get; }//GetActItem();
         bool SetActItemById(int ID); 
         List<T> GetList();
         void RefreshList();

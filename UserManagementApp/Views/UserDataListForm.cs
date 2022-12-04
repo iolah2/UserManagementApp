@@ -71,6 +71,12 @@ namespace UserManagementApp.Views
             {
                 userListGridView.FindFilterText = "";
             }
-        }        
+        }
+
+        private void UserDataListForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Az alkalmazás bezár!");
+            Application.Exit();
+        }
     }
 }

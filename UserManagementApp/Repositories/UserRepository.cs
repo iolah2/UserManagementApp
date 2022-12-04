@@ -1,12 +1,8 @@
-﻿using DevExpress.Export.Xl;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 using UserManagementApp.Models;
 
@@ -14,20 +10,15 @@ namespace UserManagementApp.Repositories
 {
     public class UserRepository : IRepository<User>, ILogin, IExport
     {
-
-
-        //Todo create an example csv if not exists
         public readonly string path = Path.Combine(Environment.CurrentDirectory, "Users.csv");
 
-        public /*ObservableCollection<User>*/List<User> _userList;
+        public List<User> _userList;
         private User _actUser;
 
-        public User AktItem => _actUser;
+        public User ActItem => _actUser;
 
-        public /*ObservableCollection<User>*/List<User> GetList()
+        public List<User> GetList()
         {
-            /*if (_userList == null)
-                RefreshList();*/
             return _userList.OrderBy(t => t.ID).ToList();
         }
 
@@ -54,14 +45,13 @@ namespace UserManagementApp.Repositories
             {
                 using (StreamWriter writer = new StreamWriter(path))
                 {
-                    writer.WriteLine("1;Antilop;Korte;Kiss;Géza;1997.12.30;Szeged;Algyő;");
+                    writer.WriteLine("1;Antilop;Korte123;Kiss;Géza;1997.12.30;Szeged;Algyő;");
                     writer.WriteLine("2;Kenu;Szilva;Nagy;Andrea;1975.02.11;Pest;Buda;");
-                    writer.WriteLine("3;Teve;Palesz;Kiss;Géza;1964.01.23;Szolnok;Pécs;");
+                    writer.WriteLine("3;Teve;Pal456;Kiss;Géza;1964.01.23;Szolnok;Pécs;");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
                 throw;
             }
         }
@@ -79,7 +69,7 @@ namespace UserManagementApp.Repositories
 
         /// <summary>
         /// Firstly Set drop error if resource file have wrong row for get user.
-        /// We can count rows that is in wrong format instead of drop error if any bad row.
+        ///Second version, We can count rows that is in wrong format instead of drop error if any bad row.
         /// </summary>
         public void RefreshList()
         {
@@ -110,9 +100,8 @@ namespace UserManagementApp.Repositories
         public string Update()
         {
             string msg = _actUser.ValidateWithErrorMsg();
-            if (msg is null)
+            if ((msg ?? "") == "")
             {
-                //int idx =_userList.ToList().IndexOf(_userList.ToList().First(u => u.ID == item.ID));
                 List<string> lines = new List<string>();
                 bool isFound = false;
                 using (StreamReader reader = new StreamReader(path, Encoding.UTF8))
@@ -139,7 +128,6 @@ namespace UserManagementApp.Repositories
                 }
                 ///Use another step if allow adding new user!
                 else throw new Exception("A módosított felhasználó nem található az adatbázisban!");
-                //TODO Here we need refresh
                 GetList();
             }
             return msg;
@@ -176,20 +164,10 @@ namespace UserManagementApp.Repositories
             }
         }
 
-        //public void StartEdit()
-        //{
-        //    _actUser.StartEdit();
-        //}
-
-        //public void ResetUserOld()
-        //{
-        //    _actUser.ResetUserOld();
-        //}
-
         public bool SetActItemById(int ID)
         {
             _actUser = _userList.FirstOrDefault(u => u.ID == ID);
-            return _actUser?.ID == ID;//TODO another testing
+            return _actUser?.ID == ID;
         }
     }
 }

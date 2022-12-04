@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserManagementApp.Models;
 using UserManagementApp.Repositories;
@@ -18,23 +11,22 @@ namespace UserManagementApp.Views
         private readonly /*IRepository<T>*/UserRepository repository;
 
         /// <summary>
-        /// Edit item is AktItem in repository
+        /// Edit item is ActItem in repository
         /// </summary>        
         /// <param name="repository"></param>
-        public DetailForm(IRepository<User> repository) /*T user, IRepository<T>*/
+        public DetailForm(IRepository<User> repository)
         {
             InitializeComponent();            
-            this.userBindingSource.DataSource = repository.AktItem;
-            //this.user = user;            
+            this.userBindingSource.DataSource = repository.ActItem;          
             this.repository = repository as UserRepository;
-            repository.AktItem.StartEdit();
+            repository.ActItem.StartEdit();
             //Set false for can use tabindex
             //https://supportcenter.devexpress.com/Ticket/Details/T403822/tabindex-for-controls-in-layoutcontrol-is-uncontrollable
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            repository.AktItem.ResetUserOld();
+            repository.ActItem.ResetUserOld();
             Close();
         }
 
@@ -42,8 +34,8 @@ namespace UserManagementApp.Views
         {
             try
             {
-                string errorMessage;
-                if ((errorMessage = repository.Update()) == null)
+                string errorMessage = repository.Update();
+                if ((errorMessage ?? "") == "")
                 {
                     MessageBox.Show("Felhasználó mentése sikeres!");
                     Close();
@@ -55,7 +47,7 @@ namespace UserManagementApp.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Felhasználó ({repository.AktItem}) mentése sikertelen!\n{ex.Message}");
+                MessageBox.Show($"Felhasználó ({repository.ActItem}) mentése sikertelen!\n{ex.Message}");
             }
         }
     }

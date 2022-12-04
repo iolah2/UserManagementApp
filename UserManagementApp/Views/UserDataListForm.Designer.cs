@@ -293,6 +293,7 @@ namespace UserManagementApp.Views
             this.Controls.Add(this.userGridControl);
             this.Name = "UserDataListForm";
             this.Text = "Felhasználók";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserDataListForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.userGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userListGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
