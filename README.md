@@ -1,17 +1,13 @@
 # UserManagementApp
 Login nézet felhasználó bejelentkezéséhez.
-Lista nézet keresés, XML export 
+Lista nézet keresés, XML export. 
 Szerkesztő nézet.
 
 Struktúra
-3 nézet
-UserRepository S hozzá kapcsolódó interface
+UserRepository a hozzá kapcsolódó interface-ekkel
  IRepository T genetikus
  ILogin bejelentkezés feltételek ellenőrzése
  IXML XML be export
 User
-  IEdit - másolat, valodacio, mentés
-  ICSV - betöltés, módosítás rögzítése
-
-DataListForm comstrucror, load hívja meg És kezelje a logint
-Így a kileptetest megoldva.
+  IEdit - másolat, validáció, mentés
+  ICSV - betöltés, módosítás rögzítés
