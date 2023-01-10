@@ -56,7 +56,7 @@ namespace UserManagementApp.Repositories
             }
         }
         #region Login part
-        public bool IsUserListEmpty() => !(_userList?.Count() > 0);
+        //public bool IsUserListEmpty() => !(_userList?.Count() > 0);
 
         public bool Login(string userName, string password)
         {

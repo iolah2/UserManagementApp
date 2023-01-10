@@ -19,11 +19,13 @@ namespace UserManagementApp.Views
         {
             InitializeComponent();
             this.repository = repository;
+        #if DEBUG //For testing - if I forget create pattern list
             if (repository.IsUserListEmpty())
             {
                 MessageBox.Show("Az adatbázisban nincs felhasználó!\nAz alkalmazás leáll!");
                 Close();
             }
+        #endif
         }
 
         private void LoginBtn_Click(object sender, EventArgs e)
